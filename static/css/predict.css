@@ -1,0 +1,120 @@
+/* ========== Base Reset & Layout ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #dbe6f6, #c5796d);
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background: #ffffffcc;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+}
+
+nav a:hover {
+  color: #0077b6;
+}
+
+/* ========== Predict Section ========== */
+
+.predict-section {
+  max-width: 900px; /* increased from 700px */
+  margin: 60px auto 40px;
+  background: white;
+  padding: 100px 100px; /* increased padding */
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12); /* slightly deeper shadow */
+  color: #333;
+}
+
+
+.predict-section h2 {
+  text-align: center;
+  color: #0077b6;
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+/* ========== Form Styling ========== */
+.predict-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.predict-form label {
+  margin-top: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.predict-form input,
+.predict-form select {
+  margin-top: 8px;
+  padding: 12px 14px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s ease;
+}
+
+.predict-form input:focus,
+.predict-form select:focus {
+  border-color: #0077b6;
+  outline: none;
+}
+
+/* Submit Button */
+.predict-form button {
+  margin-top: 30px;
+  padding: 14px;
+  background-color: #0077b6;
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.predict-form button:hover {
+  background-color: #005f86;
+}
+
+/* Optional Footer */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #fff;
+  font-size: 14px;
+  color: #777;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+}

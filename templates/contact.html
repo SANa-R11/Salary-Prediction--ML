@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Salary Predictor</title>
+  <link rel="stylesheet" href="../static/css/contact.css" />
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">Salary Predictor</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/predict">Predict</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="contact-section">
+    <h2>Contact Us</h2>
+    <p class="subtext">We’d love to hear from you! Fill out the form below to get in touch.</p>
+
+    <form class="contact-form" action="/submit_contact" method="post">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required placeholder="Your full name" />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" required placeholder="What’s this about?" />
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Your message here..."></textarea>
+      </div>
+
+      <button type="submit" class="contact-btn">Send Message</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    &copy; 2025 Salary Predictor. All rights reserved.
+  </footer>
+</body>
+</html>

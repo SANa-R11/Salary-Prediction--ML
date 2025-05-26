@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Salary Prediction</title>
+  <link rel="stylesheet" href="../static/css/predict.css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+{% if prediction %}
+  <script>
+    Swal.fire({
+
+      title: '{{ prediction }}',    
+      text: "Your predicted salary",
+      icon: "success"
+    });
+  </script>
+{% endif %}
+  <header class="navbar">
+    <div class="logo">Salary Predictor</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/predict">Predict</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </header>
+
+  <main class="predict-section">
+    <h2>Predict Your Salary</h2>
+
+    <form action="/predict" method="post" class="predict-form">
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" min="18" max="100" required placeholder="e.g. 44" />
+
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender" required>
+        <option value="" disabled selected>Select gender</option>
+        <option value="Female">Female</option>
+        <option value="Male">Male</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <label for="education">Education Level:</label>
+      <select id="education" name="education" required>
+        <option value="" disabled selected>Select education level</option>
+        <option value="High School">High School</option>
+        <option value="Bachelor's Degree">Bachelor's Degree</option>
+        <option value="Master's Degree">Master's Degree</option>
+        <option value="PhD">PhD</option>
+      </select>
+
+<label for="job_title">Job Title:</label>
+<select id="job_title" name="job_title" required>
+  <option value="" disabled selected>Select job title</option>
+  <option value="Software Engineer">Software Engineer</option>
+  <option value="Data Analyst">Data Analyst</option>
+  <option value="Senior Manager">Senior Manager</option>
+  <option value="Sales Associate">Sales Associate</option>
+  <option value="Director">Director</option>
+  <option value="Marketing Analyst">Marketing Analyst</option>
+  <option value="Product Manager">Product Manager</option>
+  <option value="Sales Manager">Sales Manager</option>
+  <option value="Marketing Coordinator">Marketing Coordinator</option>
+  <option value="Senior Scientist">Senior Scientist</option>
+  <option value="Software Developer">Software Developer</option>
+  <option value="HR Manager">HR Manager</option>
+  <option value="Financial Analyst">Financial Analyst</option>
+  <option value="Project Manager">Project Manager</option>
+  <option value="Customer Service Rep">Customer Service Rep</option>
+  <option value="Operations Manager">Operations Manager</option>
+  <option value="Marketing Manager">Marketing Manager</option>
+  <option value="Senior Engineer">Senior Engineer</option>
+  <option value="Data Entry Clerk">Data Entry Clerk</option>
+  <option value="Sales Director">Sales Director</option>
+  <option value="Business Analyst">Business Analyst</option>
+  <option value="VP of Operations">VP of Operations</option>
+  <option value="IT Support">IT Support</option>
+  <option value="Recruiter">Recruiter</option>
+  <option value="Financial Manager">Financial Manager</option>
+  <option value="Social Media Specialist">Social Media Specialist</option>
+  <option value="Software Manager">Software Manager</option>
+  <option value="Junior Developer">Junior Developer</option>
+  <option value="Senior Consultant">Senior Consultant</option>
+  <option value="Product Designer">Product Designer</option>
+  <option value="CEO">CEO</option>
+  <option value="Accountant">Accountant</option>
+  <option value="Data Scientist">Data Scientist</option>
+  <option value="Marketing Specialist">Marketing Specialist</option>
+  <option value="Technical Writer">Technical Writer</option>
+  <option value="HR Generalist">HR Generalist</option>
+  <option value="Project Engineer">Project Engineer</option>
+  <option value="Customer Success Rep">Customer Success Rep</option>
+  <option value="Sales Executive">Sales Executive</option>
+  <option value="UX Designer">UX Designer</option>
+  <option value="Operations Director">Operations Director</option>
+  <option value="Network Engineer">Network Engineer</option>
+  <option value="Administrative Assistant">Administrative Assistant</option>
+  <option value="Strategy Consultant">Strategy Consultant</option>
+  <option value="Copywriter">Copywriter</option>
+  <option value="Account Manager">Account Manager</option>
+  <option value="Director of Marketing">Director of Marketing</option>
+  <option value="Help Desk Analyst">Help Desk Analyst</option>
+  <option value="Customer Service Manager">Customer Service Manager</option>
+  <option value="Business Intelligence Analyst">Business Intelligence Analyst</option>
+  <option value="Event Coordinator">Event Coordinator</option>
+  <option value="VP of Finance">VP of Finance</option>
+  <option value="Graphic Designer">Graphic Designer</option>
+  <option value="UX Researcher">UX Researcher</option>
+  <option value="Social Media Manager">Social Media Manager</option>
+  <option value="Director of Operations">Director of Operations</option>
+  <option value="Senior Data Scientist">Senior Data Scientist</option>
+  <option value="Junior Accountant">Junior Accountant</option>
+  <option value="Digital Marketing Manager">Digital Marketing Manager</option>
+  <option value="IT Manager">IT Manager</option>
+  <option value="Customer Service Representative">Customer Service Representative</option>
+  <option value="Business Development Manager">Business Development Manager</option>
+  <option value="Senior Financial Analyst">Senior Financial Analyst</option>
+  <option value="Web Developer">Web Developer</option>
+  <option value="Research Director">Research Director</option>
+  <option value="Technical Support Specialist">Technical Support Specialist</option>
+  <option value="Creative Director">Creative Director</option>
+  <option value="Senior Software Engineer">Senior Software Engineer</option>
+  <option value="Human Resources Director">Human Resources Director</option>
+  <option value="Content Marketing Manager">Content Marketing Manager</option>
+  <option value="Technical Recruiter">Technical Recruiter</option>
+  <option value="Sales Representative">Sales Representative</option>
+  <option value="Chief Technology Officer">Chief Technology Officer</option>
+  <option value="Junior Designer">Junior Designer</option>
+  <option value="Financial Advisor">Financial Advisor</option>
+  <option value="Junior Account Manager">Junior Account Manager</option>
+  <option value="Senior Project Manager">Senior Project Manager</option>
+  <option value="Principal Scientist">Principal Scientist</option>
+  <option value="Supply Chain Manager">Supply Chain Manager</option>
+  <option value="Senior Marketing Manager">Senior Marketing Manager</option>
+  <option value="Training Specialist">Training Specialist</option>
+  <option value="Research Scientist">Research Scientist</option>
+  <option value="Junior Software Developer">Junior Software Developer</option>
+  <option value="Public Relations Manager">Public Relations Manager</option>
+  <option value="Operations Analyst">Operations Analyst</option>
+  <option value="Product Marketing Manager">Product Marketing Manager</option>
+  <option value="Senior HR Manager">Senior HR Manager</option>
+  <option value="Junior Web Developer">Junior Web Developer</option>
+  <option value="Senior Project Coordinator">Senior Project Coordinator</option>
+  <option value="Chief Data Officer">Chief Data Officer</option>
+  <option value="Digital Content Producer">Digital Content Producer</option>
+  <option value="IT Support Specialist">IT Support Specialist</option>
+  <option value="Senior Marketing Analyst">Senior Marketing Analyst</option>
+  <option value="Customer Success Manager">Customer Success Manager</option>
+  <option value="Senior Graphic Designer">Senior Graphic Designer</option>
+  <option value="Software Project Manager">Software Project Manager</option>
+  <option value="Supply Chain Analyst">Supply Chain Analyst</option>
+  <option value="Senior Business Analyst">Senior Business Analyst</option>
+  <option value="Junior Marketing Analyst">Junior Marketing Analyst</option>
+  <option value="Office Manager">Office Manager</option>
+  <option value="Principal Engineer">Principal Engineer</option>
+  <option value="Junior HR Generalist">Junior HR Generalist</option>
+  <option value="Senior Product Manager">Senior Product Manager</option>
+  <option value="Junior Operations Analyst">Junior Operations Analyst</option>
+  <option value="Senior HR Generalist">Senior HR Generalist</option>
+  <option value="Sales Operations Manager">Sales Operations Manager</option>
+  <option value="Senior Software Developer">Senior Software Developer</option>
+  <option value="Junior Web Designer">Junior Web Designer</option>
+  <option value="Senior Training Specialist">Senior Training Specialist</option>
+  <option value="Senior Research Scientist">Senior Research Scientist</option>
+  <option value="Junior Sales Representative">Junior Sales Representative</option>
+  <option value="Junior Marketing Manager">Junior Marketing Manager</option>
+  <option value="Junior Data Analyst">Junior Data Analyst</option>
+  <option value="Senior Product Marketing Manager">Senior Product Marketing Manager</option>
+  <option value="Junior Business Analyst">Junior Business Analyst</option>
+  <option value="Senior Sales Manager">Senior Sales Manager</option>
+  <option value="Junior Marketing Specialist">Junior Marketing Specialist</option>
+  <option value="Junior Project Manager">Junior Project Manager</option>
+  <option value="Senior Accountant">Senior Accountant</option>
+  <option value="Director of Sales">Director of Sales</option>
+  <option value="Junior Recruiter">Junior Recruiter</option>
+  <option value="Senior Business Development Manager">Senior Business Development Manager</option>
+  <option value="Senior Product Designer">Senior Product Designer</option>
+  <option value="Junior Customer Support Specialist">Junior Customer Support Specialist</option>
+  <option value="Senior IT Support Specialist">Senior IT Support Specialist</option>
+  <option value="Junior Financial Analyst">Junior Financial Analyst</option>
+  <option value="Senior Operations Manager">Senior Operations Manager</option>
+  <option value="Director of Human Resources">Director of Human Resources</option>
+  <option value="Junior Software Engineer">Junior Software Engineer</option>
+  <option value="Senior Sales Representative">Senior Sales Representative</option>
+  <option value="Director of Product Management">Director of Product Management</option>
+  <option value="Junior Copywriter">Junior Copywriter</option>
+  <option value="Senior Marketing Coordinator">Senior Marketing Coordinator</option>
+  <option value="Senior Human Resources Manager">Senior Human Resources Manager</option>
+  <option value="Junior Business Development Associate">Junior Business Development Associate</option>
+  <option value="Senior Account Manager">Senior Account Manager</option>
+  <option value="Senior Researcher">Senior Researcher</option>
+  <option value="Junior HR Coordinator">Junior HR Coordinator</option>
+  <option value="Director of Finance">Director of Finance</option>
+  <option value="Junior Marketing Coordinator">Junior Marketing Coordinator</option>
+  <option value="Junior Data Scientist">Junior Data Scientist</option>
+  <option value="Senior Operations Analyst">Senior Operations Analyst</option>
+  <option value="Senior Human Resources Coordinator">Senior Human Resources Coordinator</option>
+  <option value="Senior UX Designer">Senior UX Designer</option>
+  <option value="Junior Product Manager">Junior Product Manager</option>
+  <option value="Senior Marketing Specialist">Senior Marketing Specialist</option>
+  <option value="Senior IT Project Manager">Senior IT Project Manager</option>
+  <option value="Senior Quality Assurance Analyst">Senior Quality Assurance Analyst</option>
+  <option value="Director of Sales and Marketing">Director of Sales and Marketing</option>
+  <option value="Senior Account Executive">Senior Account Executive</option>
+  <option value="Director of Business Development">Director of Business Development</option>
+  <option value="Junior Social Media Manager">Junior Social Media Manager</option>
+  <option value="Senior Human Resources Specialist">Senior Human Resources Specialist</option>
+  <option value="Senior Data Analyst">Senior Data Analyst</option>
+  <option value="Director of Human Capital">Director of Human Capital</option>
+  <option value="Junior Advertising Coordinator">Junior Advertising Coordinator</option>
+  <option value="Junior UX Designer">Junior UX Designer</option>
+  <option value="Senior Marketing Director">Senior Marketing Director</option>
+  <option value="Senior IT Consultant">Senior IT Consultant</option>
+  <option value="Senior Financial Advisor">Senior Financial Advisor</option>
+  <option value="Junior Business Operations Analyst">Junior Business Operations Analyst</option>
+  <option value="Junior Social Media Specialist">Junior Social Media Specialist</option>
+  <option value="Senior Product Development Manager">Senior Product Development Manager</option>
+  <option value="Junior Operations Manager">Junior Operations Manager</option>
+  <option value="Senior Software Architect">Senior Software Architect</option>
+  <option value="Junior Research Scientist">Junior Research Scientist</option>
+  <option value="Senior Financial Manager">Senior Financial Manager</option>
+  <option value="Senior HR Specialist">Senior HR Specialist</option>
+  <option value="Senior Data Engineer">Senior Data Engineer</option>
+  <option value="Junior Operations Coordinator">Junior Operations Coordinator</option>
+  <option value="Director of HR">Director of HR</option>
+  <option value="Senior Operations Coordinator">Senior Operations Coordinator</option>
+  <option value="Junior Financial Advisor">Junior Financial Advisor</option>
+  <option value="Director of Engineering">Director of Engineering</option>
+  <option value="Software Engineer Manager">Software Engineer Manager</option>
+  <option value="Back end Developer">Back end Developer</option>
+  <option value="Senior Project Engineer">Senior Project Engineer</option>
+  <option value="Full Stack Engineer">Full Stack Engineer</option>
+  <option value="Front end Developer">Front end Developer</option>
+  <option value="Front End Developer">Front End Developer</option>
+  <option value="Director of Data Science">Director of Data Science</option>
+  <option value="Human Resources Coordinator">Human Resources Coordinator</option>
+  <option value="Junior Sales Associate">Junior Sales Associate</option>
+  <option value="Human Resources Manager">Human Resources Manager</option>
+  <option value="Juniour HR Generalist">Juniour HR Generalist</option>
+  <option value="Juniour HR Coordinator">Juniour HR Coordinator</option>
+  <option value="Digital Marketing Specialist">Digital Marketing Specialist</option>
+  <option value="Receptionist">Receptionist</option>
+  <option value="Marketing Director">Marketing Director</option>
+  <option value="Social Media Man">Social Media Man</option>
+  <option value="Delivery Driver">Delivery Driver</option>
+</select>
+
+
+
+      <label for="experience">Years of Experience:</label>
+      <input type="number" id="experience" name="experience" min="0" max="60" required placeholder="e.g. 15" />
+
+      <button type="submit">Predict Salary</button>
+    </form>
+  </main>
+</body>
+</html>
